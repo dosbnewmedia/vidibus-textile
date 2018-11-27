@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'rspec', '~> 2'
   s.add_development_dependency 'rr'
+  s.add_development_dependency 'database_cleaner'
 
   s.files = Dir.glob('{lib,app,config}/**/*') + %w[LICENSE README.rdoc Rakefile]
   s.require_path = 'lib'
