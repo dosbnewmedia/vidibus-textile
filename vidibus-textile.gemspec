@@ -21,7 +21,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'RedCloth'
   s.add_dependency 'activesupport', '>= 3'
   s.add_dependency 'actionpack', '>= 3'
-  s.add_dependency 'mongoid', '>= 3'
+  s.add_dependency 'mongoid', '>= 3', '< 4'
+  s.add_dependency 'nokogiri'
   # s.add_dependency 'vidibus-core_extensions'
 
   s.add_development_dependency 'bundler', '>= 1.0.0'

@@ -14,7 +14,7 @@ require "vidibus-textile"
 Mongoid.configure do |config|
   config.connect_to('vidibus-textile')
 end
-Mongo::Logger.logger.level = Logger::INFO
+#Mongo::Logger.logger.level = Logger::INFO
 RSpec.configure do |config|
   config.mock_with :rr
   # config.before(:each) do
