@@ -1,5 +1,6 @@
 require "vidibus/textile/extensions"
 require "vidibus/textile/mongoid"
+require "nokogiri"
 
 module Vidibus
   module Textile
@@ -31,11 +32,13 @@ module Vidibus
 
       # Remove html tags and redcloth glyphs from input string.
       def strip_html(input)
-        input.dup.gsub(html_regexp, '').tap do |h|
+        input.tap do |h|
           for entity, char in redcloth_glyphs
             h.gsub!(entity, char)
           end
         end
+        fragment = Nokogiri::HTML.fragment(input)
+        fragment.text
       end
 
       # Replace newlines by white space.
@@ -48,8 +51,8 @@ module Vidibus
         {
           "&#8217;" => "'",
           "&#8216" => "'",
-          "&lt;" => "<",
-          "&gt;" => ">",
+          # "&lt;" => "<",
+          # "&gt;" => ">",
           "&#8221;" => '"',
           "&#8220;" => '"',
           "&#8230;" => "...",

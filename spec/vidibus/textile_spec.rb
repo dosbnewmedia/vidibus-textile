@@ -28,5 +28,10 @@ describe Vidibus::Textile do
       textile = Vidibus::Textile.new("Super\nTrouper")
       textile.to_text(:plain => true).should eql("Super Trouper")
     end
+
+    it "parses invalid html" do
+      textile = Vidibus::Textile.new("Super\nTrouper <a href=\"\" _target=blank\">text</a>")
+      textile.to_text(:plain => true).should eql("Super Trouper text")
+    end
   end
 end
