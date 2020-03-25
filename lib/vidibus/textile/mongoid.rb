@@ -11,8 +11,8 @@ module Vidibus
           options = args.extract_options!
           for field in args
             plain_field = "#{field}_plain"
-            self.send(:field, field, :type => Moped::BSON::Binary)
-            self.send(:field, plain_field, :type => Moped::BSON::Binary)
+            self.send(:field, field, :type => ::BSON::Binary)
+            self.send(:field, plain_field, :type => ::BSON::Binary)
 
             class_eval <<-EOS
               before_save :set_#{plain_field}, :if => lambda {#{field}_changed? or new_record?}
